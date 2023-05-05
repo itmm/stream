@@ -25,7 +25,6 @@ void run_ut1_add_lines() {
 		assert(std::getline(in, line));
 		assert(line == line_2);
 		assert(!std::getline(in, line));
-#line 87
 	}
 	std::filesystem::remove(file_name);
 	return;

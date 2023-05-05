@@ -2,12 +2,12 @@
 #pragma once
 
 #include <string>
-#line 102
+#line 101
 #include <fstream>
 #line 37
 
 class Stream {
-#line 105
+#line 104
 		std::ofstream out_;
 #line 39
 	public:
