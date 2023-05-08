@@ -1,6 +1,6 @@
 diff -ruN cur/akr/1.md new/akr/1.md
 --- cur/akr/1.md	1970-01-01 01:00:00.000000000 +0100
-+++ new/akr/1.md	2023-05-08 12:50:22.041942100 +0200
++++ new/akr/1.md	2023-05-08 12:59:15.490039000 +0200
 @@ -0,0 +1,12 @@
 +# Zwei Zeilen in neue Datei schreiben
 +
@@ -12,11 +12,11 @@ diff -ruN cur/akr/1.md new/akr/1.md
 +
 +## Referenzen
 +
-+* _wird erzeugt durch_: [[ΔAKR1]](../../delta/akr/1.patch)
-+* _testet_: [[ΔANF1]](../../delta/anf/1.patch)
++* _wird erzeugt durch_: [[ΔAKR1]](../../delta/2.patch)
++* _testet_: [[ΔANF1]](../../delta/1.patch)
 diff -ruN cur/akr/2.md new/akr/2.md
 --- cur/akr/2.md	1970-01-01 01:00:00.000000000 +0100
-+++ new/akr/2.md	2023-05-08 12:50:52.179712000 +0200
++++ new/akr/2.md	2023-05-08 12:59:36.762400000 +0200
 @@ -0,0 +1,12 @@
 +# Zeile anhängen
 +
@@ -28,14 +28,14 @@ diff -ruN cur/akr/2.md new/akr/2.md
 +
 +## Referenzen
 +
-+* _wird erzeugt durch_: [[ΔAKR1]](../../delta/akr/1.patch)
-+* _testet_: [[ΔANF1]](../../delta/anf/1.patch)
++* _wird erzeugt durch_: [[ΔAKR1]](../../delta/2.patch)
++* _testet_: [[ΔANF1]](../../delta/1.patch)
 diff -ruN cur/anf/1.md new/anf/1.md
---- cur/anf/1.md	2023-05-08 12:47:52.455878500 +0200
-+++ new/anf/1.md	2023-05-08 12:51:26.935732200 +0200
+--- cur/anf/1.md	2023-05-08 12:57:35.734828300 +0200
++++ new/anf/1.md	2023-05-08 12:58:57.718504700 +0200
 @@ -5,3 +5,5 @@
  ## Referenzen
  
- * _wird erzeugt durch_: [[ΔANF1]](../../delta/anf/1.patch)
-+* _wird geändert durch_: [[ΔAKR1]](../../delta/akr/1.patch)
-+* _wird getestet durch_: [[ΔAKR1]](../../delta/akr/1.patch)
+ * _wird erzeugt durch_: [[ΔANF1]](../../delta/1.patch)
++* _wird geändert durch_: [[ΔAKR1]](../../delta/2.patch)
++* _wird getestet durch_: [[ΔAKR1]](../../delta/2.patch)

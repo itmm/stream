@@ -1,6 +1,6 @@
 diff -ruN cur/anf/1.md new/anf/1.md
 --- cur/anf/1.md	1970-01-01 01:00:00.000000000 +0100
-+++ new/anf/1.md	2023-05-08 12:47:08.312543400 +0200
++++ new/anf/1.md	2023-05-08 12:56:38.833561100 +0200
 @@ -0,0 +1,7 @@
 +# Einfaches Schreiben
 +
@@ -8,4 +8,4 @@ diff -ruN cur/anf/1.md new/anf/1.md
 +
 +## Referenzen
 +
-+* _wird erzeugt durch_: [[ΔANF1]](../../delta/anf/1.patch)
++* _wird erzeugt durch_: [[ΔANF1]](../../delta/1.patch)
