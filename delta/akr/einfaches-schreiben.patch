@@ -12,7 +12,7 @@ diff -ruN cur/akr/1.md new/akr/1.md
 +
 +## Referenzen
 +
-+* TESTET: [../anf/1.md]([ANF1] Einfaches Schreiben)
++* TESTET: [[ANF1] Einfaches Schreiben](../anf/1.md)
 diff -ruN cur/akr/2.md new/akr/2.md
 --- cur/akr/2.md	1970-01-01 01:00:00.000000000 +0100
 +++ new/akr/2.md	2023-05-08 10:44:05.426573000 +0200
@@ -27,4 +27,4 @@ diff -ruN cur/akr/2.md new/akr/2.md
 +
 +## Referenzen
 +
-+* TESTET: [../anf/1.md]([ANF1] Einfaches Schreiben)
++* TESTET: [[ANF1] Einfaches Schreiben](../anf/1.md)
