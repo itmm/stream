@@ -1,0 +1,30 @@
+diff -ruN cur/akr/1.md new/akr/1.md
+--- cur/akr/1.md	1970-01-01 01:00:00.000000000 +0100
++++ new/akr/1.md	2023-05-08 10:43:19.139465000 +0200
+@@ -0,0 +1,11 @@
++# Zwei Zeilen in neue Datei schreiben
++
++1. Die Datei `test.txt` ist vor dem Start des Tests nicht vorhanden.
++2. Mit `stream` wird die Zeile `abc` in die Datei `test.txt` geschrieben.
++3. Mit `stream` wird die Zeile `def` in die Datei `test.txt` geschrieben.
++4. Nach dem Ende des Test-Programmes gibt es die Datei `test.txt`.
++5. Die Datei `test.txt` enthält die beiden Zeilen `abc` und `def`.
++
++## Referenzen
++
++* TESTET: [../anf/1.md]([ANF1] Einfaches Schreiben)
+diff -ruN cur/akr/2.md new/akr/2.md
+--- cur/akr/2.md	1970-01-01 01:00:00.000000000 +0100
++++ new/akr/2.md	2023-05-08 10:44:05.426573000 +0200
+@@ -0,0 +1,11 @@
++# Zeile anhängen
++
++1. Die Datei `test.txt` existiert vor dem Start des Test-Programms mit der
++   einzigen Zeile `abc`.
++2. Mit `stream` wird die Zeile `def` in die Datei `test.txt` geschrieben.
++3. Nach dem Ende des Test-Programms enthält die Datei `test.txt` die beiden
++   Zeilen `abc` und `def`.
++
++## Referenzen
++
++* TESTET: [../anf/1.md]([ANF1] Einfaches Schreiben)
