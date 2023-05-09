@@ -1,47 +1,5 @@
 # Das `stream`-Framework
 
-## ANFORDERUNG [AN1]: Einfaches Schreiben
-
-1. `stream` kann zeilenweise Texte in eine Datei anfügen
-
-
-Diese Anforderung beschreibt auf sehr hoher Ebene, was das `stream`-Framework
-leisten soll.
-
-Daraus resultieren direkt Akzeptanzkriterien:
-
-## AKZEPTANZKRITERIUM [AK1] -> [AN1]: Zwei Zeilen in neue Datei schreiben
-
-1. Die Datei `test.txt` ist vor dem Start des Tests nicht vorhanden.
-2. Mit `stream` wird die Zeile `abc` in die Datei `test.txt` geschrieben.
-3. Mit `stream` wird die Zeile `def` in die Datei `test.txt` geschrieben.
-4. Nach dem Ende des Test-Programmes gibt es die Datei `test.txt`.
-5. Die Datei `test.txt` enthält die beiden Zeilen `abc` und `def`.
-
-## AKZEPTANZKRITERIUM [AK2] -> [AN2]: Zeile anhängen
-
-1. Die Datei `test.txt` existiert vor dem Start des Test-Programms mit der
-   einzigen Zeile `abc`.
-2. Mit `stream` wird die Zeile `def` in die Datei `test.txt` geschrieben.
-3. Nach dem Ende des Test-Programms enthält die Datei `test.txt` die beiden
-   Zeilen `abc` und `def`.
-
-## DESIGN [DE1] -> [AN1]: `Stream`-Klasse
-
-In `stream.h` wird die Klasse `Stream` definiert:
-
-```c++
-#pragma once
-
-#include <string>
-
-class Stream {
-	public:
-		explicit Stream(const std::string &file_path);
-		void add(const std::string &data);
-};
-```
-
 ## UNIT-TEST [UT1] -> [AN1],[AK1]: Zwei Zeilen in neue Datei schreiben
 
 In `run_tests.cpp` werden alle Testläufe gebündelt:
