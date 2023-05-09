@@ -1,0 +1,33 @@
+diff -ruN cur/Makefile new/Makefile
+--- cur/Makefile	1970-01-01 01:00:00.000000000 +0100
++++ new/Makefile	2023-05-09 09:54:47.235708455 +0200
+@@ -0,0 +1,13 @@
++.PHONY: all clean
++
++all: run_tests
++	./run_tests
++
++t_src/run_tests.cpp: src/stream.h
++	touch $@
++
++run_tests: t_src/run_tests.cpp
++	$(CXX) $^ -It_src -Isrc -g -Wall -o$@
++
++clean:
++	rm run_tests
+Binary files cur/run_tests and new/run_tests differ
+diff -ruN cur/t_src/run_tests.cpp new/t_src/run_tests.cpp
+--- cur/t_src/run_tests.cpp	1970-01-01 01:00:00.000000000 +0100
++++ new/t_src/run_tests.cpp	2023-05-09 09:51:45.685705881 +0200
+@@ -0,0 +1,11 @@
++#include "stream.h"
++
++#include <cassert>
++
++void run_ut1_add_lines() {
++	assert(false);
++}
++
++int main() {
++	run_ut1_add_lines();
++}
