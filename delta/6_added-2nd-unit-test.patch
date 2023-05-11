@@ -1,0 +1,55 @@
+diff -ruN cur new
+diff -ruN cur/t_src/run_tests.cpp new/t_src/run_tests.cpp
+--- cur/t_src/run_tests.cpp	2023-05-11 13:48:17.672437506 +0200
++++ new/t_src/run_tests.cpp	2023-05-11 13:55:52.712445268 +0200
+@@ -6,25 +6,41 @@
+ #include <filesystem>
+ #include <fstream>
+ 
++static const std::string file_name { "test.txt" };
++static const std::string line_1 { "abc" };
++static const std::string line_2 { "def" };
++
++void check_expected() {
++	std::ifstream in { file_name };
++	std::string line;
++	assert(std::getline(in, line));
++	assert(line == line_1);
++	assert(std::getline(in, line));
++	assert(line == line_2);
++	assert(!std::getline(in, line));
++}
++
+ void run_ut1_add_lines() {
+-	std::string file_name { "test.txt" };
+-	std::string line_1 { "abc" };
+-	std::string line_2 { "def" };
+ 	std::filesystem::remove(file_name);
+ 	{
+ 		Stream str { file_name };
+ 		str.add(line_1);
+ 		str.add(line_2);
+ 	}
++	check_expected();
++	std::filesystem::remove(file_name);
++}
++
++void run_ut2_add_line() {
++	{
++		std::ofstream out { file_name };
++		out << line_1 << '\n';
++	}
+ 	{
+-		std::ifstream in { file_name };
+-		std::string line;
+-		assert(std::getline(in, line));
+-		assert(line == line_1);
+-		assert(std::getline(in, line));
+-		assert(line == line_2);
+-		assert(!std::getline(in, line));
++		Stream str { file_name };
++		str.add(line_2);
+ 	}
++	check_expected();
+ 	std::filesystem::remove(file_name);
+ }

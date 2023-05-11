@@ -4,7 +4,7 @@ all clean:
 	$(MAKE) -C cur $@
 
 diff: clean new_clean
-	diff -ruN cur new
+	diff -ruN cur new || true
 
 sync: clean
 	rm -Rf new/*
