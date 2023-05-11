@@ -1,2 +1,3 @@
 new
 run_tests
+*.o

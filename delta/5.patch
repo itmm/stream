@@ -1,0 +1,96 @@
+diff -ruN cur/Makefile new/Makefile
+--- cur/Makefile	2023-05-09 13:57:49.405915177 +0200
++++ new/Makefile	2023-05-09 15:08:46.365975525 +0200
+@@ -1,13 +1,21 @@
+ .PHONY: all clean
+ 
++CXXFLAGS += -std=c++17 -g -Wall -Isrc -It_src
++
+ all: run_tests
+ 	./run_tests
+ 
+ t_src/run_tests.cpp: src/stream.h
+ 	touch $@
+ 
+-run_tests: t_src/run_tests.cpp
+-	$(CXX) $^ -It_src -Isrc -g -Wall -o$@
++src/stream.cpp: src/stream.h
++	touch $@
++
++%.o:%.cpp
++	$(CXX) $(CXXFLAGS) -c $^ -o$@
++
++run_tests: t_src/run_tests.o src/stream.o
++	$(CXX) $(CXXFLAGS) $^ -o$@
+ 
+ clean:
+-	rm run_tests
++	rm -f run_tests src/*.o t_src/*.o
+diff -ruN cur/src/stream.cpp new/src/stream.cpp
+--- cur/src/stream.cpp	1970-01-01 01:00:00.000000000 +0100
++++ new/src/stream.cpp	2023-05-09 15:07:31.525974464 +0200
+@@ -0,0 +1,11 @@
++#include "stream.h"
++
++#include <fstream>
++
++Stream::Stream(const std::string &file_path):
++	out_ { file_path.c_str() }
++{ }
++
++void Stream::add(const std::string &data) {
++	out_ << data << "\n";
++}
+diff -ruN cur/src/stream.h new/src/stream.h
+--- cur/src/stream.h	2023-05-09 09:46:15.295701198 +0200
++++ new/src/stream.h	2023-05-09 15:06:29.605973586 +0200
+@@ -2,9 +2,13 @@
+ 
+ // _Design von_: [[Δ1]](../../delta/1.patch)
+ 
++#include "stream.h"
++
++#include <fstream>
+ #include <string>
+ 
+ class Stream {
++		std::ofstream out_;
+ 	public:
+ 		explicit Stream(const std::string &file_path);
+ 		void add(const std::string &data);
+diff -ruN cur/t_src/run_tests.cpp new/t_src/run_tests.cpp
+--- cur/t_src/run_tests.cpp	2023-05-09 09:56:16.265709717 +0200
++++ new/t_src/run_tests.cpp	2023-05-09 15:06:30.565973599 +0200
+@@ -1,9 +1,31 @@
+ #include "stream.h"
+ 
++// _unit-testet_: [[Δ1]](../../delta/1.patch)
++
+ #include <cassert>
++#include <filesystem>
++#include <fstream>
+ 
+ void run_ut1_add_lines() {
+-	assert(false);
++	std::string file_name { "test.txt" };
++	std::string line_1 { "abc" };
++	std::string line_2 { "def" };
++	std::filesystem::remove(file_name);
++	{
++		Stream str { file_name };
++		str.add(line_1);
++		str.add(line_2);
++	}
++	{
++		std::ifstream in { file_name };
++		std::string line;
++		assert(std::getline(in, line));
++		assert(line == line_1);
++		assert(std::getline(in, line));
++		assert(line == line_2);
++		assert(!std::getline(in, line));
++	}
++	std::filesystem::remove(file_name);
+ }
+ 
+ int main() {
