@@ -6,7 +6,7 @@ all clean:
 diff: clean new_clean
 	diff -ruN cur new
 
-sync:
+sync: clean
 	rm -Rf new/*
 	cp -R cur/* new/
 
